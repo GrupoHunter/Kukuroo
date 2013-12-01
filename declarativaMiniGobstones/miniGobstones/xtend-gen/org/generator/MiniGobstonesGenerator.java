@@ -1,9 +1,8 @@
 package org.generator;
 
-import com.google.common.base.Objects;
+import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -27,10 +26,25 @@ import org.miniGobstones.Procedure;
 @SuppressWarnings("all")
 public class MiniGobstonesGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
-    String _className = this.className(resource);
-    String _plus = (_className + ".java");
-    CharSequence _javaCode = this.toJavaCode(resource);
-    fsa.generateFile(_plus, _javaCode);
+    EList<EObject> _contents = resource.getContents();
+    EObject _head = IterableExtensions.<EObject>head(_contents);
+    Model model = ((Model) _head);
+    StringConcatenation _builder = new StringConcatenation();
+    String _packageName = this.packageName(model);
+    _builder.append(_packageName, "");
+    _builder.append("/");
+    Resource _eResource = model.eResource();
+    String _className = this.className(_eResource);
+    _builder.append(_className, "");
+    _builder.append(".java");
+    CharSequence _javaCode = this.toJavaCode(model);
+    fsa.generateFile(_builder.toString(), _javaCode);
+  }
+  
+  public String packageName(final Model model) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("miniGobstones/runner");
+    return _builder.toString();
   }
   
   public String className(final Resource res) {
@@ -41,27 +55,14 @@ public class MiniGobstonesGenerator implements IGenerator {
     return StringExtensions.toFirstUpper(_substring);
   }
   
-  public CharSequence toJavaCode(final Resource res) {
-    CharSequence _xblockexpression = null;
-    {
-      EList<EObject> _contents = res.getContents();
-      EObject _head = IterableExtensions.<EObject>head(_contents);
-      Model model = ((Model) _head);
-      CharSequence _javaCode = this.toJavaCode(model);
-      _xblockexpression = (_javaCode);
-    }
-    return _xblockexpression;
-  }
-  
   public CharSequence toJavaCode(final Model model) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("package miniGobstones.main.");
-    Resource _eResource = model.eResource();
-    String _className = this.className(_eResource);
-    _builder.append(_className, "");
+    _builder.append("package ");
+    String _packageName = this.packageName(model);
+    String _replace = _packageName.replace("/", ".");
+    _builder.append(_replace, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
     _builder.newLine();
     _builder.append("import enums.Color;");
     _builder.newLine();
@@ -69,10 +70,9 @@ public class MiniGobstonesGenerator implements IGenerator {
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
-    Resource _eResource_1 = model.eResource();
-    String _className_1 = this.className(_eResource_1);
-    String _firstUpper = StringExtensions.toFirstUpper(_className_1);
-    _builder.append(_firstUpper, "");
+    Resource _eResource = model.eResource();
+    String _className = this.className(_eResource);
+    _builder.append(_className, "");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -96,46 +96,42 @@ public class MiniGobstonesGenerator implements IGenerator {
       Procedure _main = model.getMain();
       EList<Command> _commands = _main.getCommands();
       for(final Command command : _commands) {
-        String _compile = this.compile(command);
-        _builder.append(_compile, "");
+        CharSequence _genCompile = this.genCompile(command);
+        _builder.append(_genCompile, "");
         _builder.newLineIfNotEmpty();
       }
     }
     return _builder;
   }
   
-  public String compile(final Command command) {
-    String _switchResult = null;
-    EClass _eClass = command.eClass();
-    String _name = _eClass.getName();
-    final String _switchValue = _name;
-    boolean _matched = false;
-    if (!_matched) {
-      if (Objects.equal(_switchValue,"Poner")) {
-        _matched=true;
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("Cabezal.getInstance().poner(");
-        Color _color = ((Poner) command).getColor();
-        _builder.append(_color, "");
-        _builder.append(");");
-        _switchResult = _builder.toString();
-      }
+  protected CharSequence _genCompile(final Poner poner) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Cabezal.getInstance().poner(");
+    Color _color = poner.getColor();
+    _builder.append(_color, "");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _genCompile(final Mover mover) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Cabezal.getInstance().mover(");
+    Direccion _dir = mover.getDir();
+    _builder.append(_dir, "");
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence genCompile(final Command mover) {
+    if (mover instanceof Mover) {
+      return _genCompile((Mover)mover);
+    } else if (mover instanceof Poner) {
+      return _genCompile((Poner)mover);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(mover).toString());
     }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,"Mover")) {
-        _matched=true;
-        StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append("Cabezal.getInstance().mover(");
-        Direccion _dir = ((Mover) command).getDir();
-        _builder_1.append(_dir, "");
-        _builder_1.append(");");
-        _switchResult = _builder_1.toString();
-      }
-    }
-    if (!_matched) {
-      StringConcatenation _builder_2 = new StringConcatenation();
-      _switchResult = _builder_2.toString();
-    }
-    return _switchResult;
   }
 }
