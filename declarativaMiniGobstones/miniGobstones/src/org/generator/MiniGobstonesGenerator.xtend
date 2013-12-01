@@ -31,8 +31,7 @@ class MiniGobstonesGenerator implements IGenerator {
 	def toJavaCode(Model model) {'''
 			package «model.packageName.replace('/', '.')»;
 			
-			import enums.Color;
-			import enums.Direccion;			
+			import modeloMiniGobstones.*;
 			
 			public class «model.eResource.className» {
 				public static void main(String[] args) {	
@@ -50,12 +49,12 @@ class MiniGobstonesGenerator implements IGenerator {
 	}
 
 	def dispatch genCompile(Poner poner){'''
-		Cabezal.getInstance().poner(«poner.color»);
+		Cabezal.getInstance().poner(Color.«poner.color»);
 	'''	
 	}
 	
 	def dispatch genCompile(Mover mover){'''
-		Cabezal.getInstance().mover(«mover.dir»);
+		Cabezal.getInstance().mover(Direccion.«mover.dir»);
 	'''
 	}
 

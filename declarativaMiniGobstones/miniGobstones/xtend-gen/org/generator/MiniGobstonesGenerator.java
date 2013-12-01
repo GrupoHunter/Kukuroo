@@ -64,9 +64,7 @@ public class MiniGobstonesGenerator implements IGenerator {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("import enums.Color;");
-    _builder.newLine();
-    _builder.append("import enums.Direccion;\t\t\t");
+    _builder.append("import modeloMiniGobstones.*;");
     _builder.newLine();
     _builder.newLine();
     _builder.append("public class ");
@@ -106,7 +104,7 @@ public class MiniGobstonesGenerator implements IGenerator {
   
   protected CharSequence _genCompile(final Poner poner) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Cabezal.getInstance().poner(");
+    _builder.append("Cabezal.getInstance().poner(Color.");
     Color _color = poner.getColor();
     _builder.append(_color, "");
     _builder.append(");");
@@ -116,7 +114,7 @@ public class MiniGobstonesGenerator implements IGenerator {
   
   protected CharSequence _genCompile(final Mover mover) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Cabezal.getInstance().mover(");
+    _builder.append("Cabezal.getInstance().mover(Direccion.");
     Direccion _dir = mover.getDir();
     _builder.append(_dir, "");
     _builder.append(");");
