@@ -1,0 +1,70 @@
+grammar org.MiniGobstones with org.eclipse.xtext.common.Terminals
+
+generate miniGobstones "http://www.MiniGobstones.org"
+
+Model:
+	main = Procedure;
+	
+Procedure:
+	'procedure' name = ID LBRACE
+		commands += Command*
+	RBRACE
+;
+
+Command:
+	Poner | Mover | PonerN | MoverN | HayBolitas | PuedeMover | If
+;
+
+PonerN:
+	{PonerN}
+	'PonerN' LPAR int = INT ',' color = Color RPAR
+;
+
+MoverN:
+	{MoverN}
+	'MoverN' LPAR int = INT ',' dir = Direccion RPAR
+;
+
+Poner:
+	{Poner}
+	'Poner' LPAR color = Color RPAR
+;
+
+
+enum Color: Verde | Rojo | Azul | Negro;
+
+Mover:
+	{Mover}
+	'Mover' LPAR dir = Direccion RPAR
+;
+
+enum Direccion: Norte | Sur | Este | Oeste;
+
+HayBolitas:
+	'hayBolitas' LPAR color = Color RPAR
+;
+
+PuedeMover:
+	'puedeMover' LPAR dir = Direccion RPAR
+;
+
+If:
+	{If}
+	'if' LPAR expr = Booleans RPAR LBRACE
+		commandsThen += Command+
+		RBRACE
+	('else'LBRACE
+		commandsElse += Command+
+		RBRACE
+	)?
+;
+
+Booleans:
+	HayBolitas | PuedeMover
+;
+
+terminal LPAR : '(';
+terminal RPAR: ')';
+
+terminal LBRACE : '{';
+terminal RBRACE : '}';
