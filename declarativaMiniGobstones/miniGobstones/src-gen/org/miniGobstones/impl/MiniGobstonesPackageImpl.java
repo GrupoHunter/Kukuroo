@@ -14,6 +14,8 @@ import org.miniGobstones.Booleans;
 import org.miniGobstones.Color;
 import org.miniGobstones.Command;
 import org.miniGobstones.Direccion;
+import org.miniGobstones.Expression;
+import org.miniGobstones.For;
 import org.miniGobstones.HayBolitas;
 import org.miniGobstones.If;
 import org.miniGobstones.MiniGobstonesFactory;
@@ -21,10 +23,13 @@ import org.miniGobstones.MiniGobstonesPackage;
 import org.miniGobstones.Model;
 import org.miniGobstones.Mover;
 import org.miniGobstones.MoverN;
+import org.miniGobstones.Operator;
 import org.miniGobstones.Poner;
 import org.miniGobstones.PonerN;
 import org.miniGobstones.Procedure;
 import org.miniGobstones.PuedeMover;
+import org.miniGobstones.Variable;
+import org.miniGobstones.While;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,6 +107,27 @@ public class MiniGobstonesPackageImpl extends EPackageImpl implements MiniGobsto
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass variableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass whileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass forEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass ifEClass = null;
 
   /**
@@ -109,7 +135,21 @@ public class MiniGobstonesPackageImpl extends EPackageImpl implements MiniGobsto
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass booleansEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass operatorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -393,6 +433,106 @@ public class MiniGobstonesPackageImpl extends EPackageImpl implements MiniGobsto
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getVariable()
+  {
+    return variableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVariable_VarName()
+  {
+    return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getWhile()
+  {
+    return whileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWhile_Expr()
+  {
+    return (EReference)whileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getWhile_Commands()
+  {
+    return (EReference)whileEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFor()
+  {
+    return forEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFor_VarName()
+  {
+    return (EAttribute)forEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFor_ColorA()
+  {
+    return (EAttribute)forEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFor_ColorB()
+  {
+    return (EAttribute)forEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFor_Command()
+  {
+    return (EReference)forEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getIf()
   {
     return ifEClass;
@@ -433,9 +573,79 @@ public class MiniGobstonesPackageImpl extends EPackageImpl implements MiniGobsto
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getExpression()
+  {
+    return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_Expr()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBooleans()
   {
     return booleansEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOperator()
+  {
+    return operatorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperator_OpNot()
+  {
+    return (EAttribute)operatorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOperator_Left()
+  {
+    return (EReference)operatorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOperator_Op()
+  {
+    return (EAttribute)operatorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOperator_Right()
+  {
+    return (EReference)operatorEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -517,12 +727,34 @@ public class MiniGobstonesPackageImpl extends EPackageImpl implements MiniGobsto
     puedeMoverEClass = createEClass(PUEDE_MOVER);
     createEAttribute(puedeMoverEClass, PUEDE_MOVER__DIR);
 
+    variableEClass = createEClass(VARIABLE);
+    createEAttribute(variableEClass, VARIABLE__VAR_NAME);
+
+    whileEClass = createEClass(WHILE);
+    createEReference(whileEClass, WHILE__EXPR);
+    createEReference(whileEClass, WHILE__COMMANDS);
+
+    forEClass = createEClass(FOR);
+    createEAttribute(forEClass, FOR__VAR_NAME);
+    createEAttribute(forEClass, FOR__COLOR_A);
+    createEAttribute(forEClass, FOR__COLOR_B);
+    createEReference(forEClass, FOR__COMMAND);
+
     ifEClass = createEClass(IF);
     createEReference(ifEClass, IF__EXPR);
     createEReference(ifEClass, IF__COMMANDS_THEN);
     createEReference(ifEClass, IF__COMMANDS_ELSE);
 
+    expressionEClass = createEClass(EXPRESSION);
+    createEReference(expressionEClass, EXPRESSION__EXPR);
+
     booleansEClass = createEClass(BOOLEANS);
+
+    operatorEClass = createEClass(OPERATOR);
+    createEAttribute(operatorEClass, OPERATOR__OP_NOT);
+    createEReference(operatorEClass, OPERATOR__LEFT);
+    createEAttribute(operatorEClass, OPERATOR__OP);
+    createEReference(operatorEClass, OPERATOR__RIGHT);
 
     // Create enums
     colorEEnum = createEEnum(COLOR);
@@ -566,7 +798,13 @@ public class MiniGobstonesPackageImpl extends EPackageImpl implements MiniGobsto
     hayBolitasEClass.getESuperTypes().add(this.getBooleans());
     puedeMoverEClass.getESuperTypes().add(this.getCommand());
     puedeMoverEClass.getESuperTypes().add(this.getBooleans());
+    variableEClass.getESuperTypes().add(this.getCommand());
+    whileEClass.getESuperTypes().add(this.getCommand());
+    forEClass.getESuperTypes().add(this.getCommand());
     ifEClass.getESuperTypes().add(this.getCommand());
+    expressionEClass.getESuperTypes().add(this.getVariable());
+    booleansEClass.getESuperTypes().add(this.getVariable());
+    operatorEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -598,12 +836,34 @@ public class MiniGobstonesPackageImpl extends EPackageImpl implements MiniGobsto
     initEClass(puedeMoverEClass, PuedeMover.class, "PuedeMover", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPuedeMover_Dir(), this.getDireccion(), "dir", null, 0, 1, PuedeMover.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVariable_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getWhile_Expr(), this.getExpression(), null, "expr", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getWhile_Commands(), this.getCommand(), null, "commands", null, 0, -1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(forEClass, For.class, "For", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFor_VarName(), ecorePackage.getEString(), "varName", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFor_ColorA(), this.getColor(), "colorA", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFor_ColorB(), this.getColor(), "colorB", null, 0, 1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFor_Command(), this.getCommand(), null, "Command", null, 0, -1, For.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIf_Expr(), this.getBooleans(), null, "expr", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIf_Expr(), this.getExpression(), null, "expr", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIf_CommandsThen(), this.getCommand(), null, "commandsThen", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getIf_CommandsElse(), this.getCommand(), null, "commandsElse", null, 0, -1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpression_Expr(), this.getBooleans(), null, "expr", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(booleansEClass, Booleans.class, "Booleans", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(operatorEClass, Operator.class, "Operator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOperator_OpNot(), ecorePackage.getEString(), "opNot", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperator_Left(), this.getExpression(), null, "left", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperator_Op(), ecorePackage.getEString(), "op", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperator_Right(), this.getExpression(), null, "right", null, 0, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(colorEEnum, Color.class, "Color");

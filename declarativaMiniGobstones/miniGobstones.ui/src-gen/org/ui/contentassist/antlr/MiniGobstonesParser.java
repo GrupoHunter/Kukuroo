@@ -38,7 +38,11 @@ public class MiniGobstonesParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
+					put(grammarAccess.getVariableAccess().getAlternatives(), "rule__Variable__Alternatives");
+					put(grammarAccess.getForAccess().getAlternatives(), "rule__For__Alternatives");
+					put(grammarAccess.getTerminalExpressionAccess().getAlternatives(), "rule__TerminalExpression__Alternatives");
 					put(grammarAccess.getBooleansAccess().getAlternatives(), "rule__Booleans__Alternatives");
+					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
 					put(grammarAccess.getColorAccess().getAlternatives(), "rule__Color__Alternatives");
 					put(grammarAccess.getDireccionAccess().getAlternatives(), "rule__Direccion__Alternatives");
 					put(grammarAccess.getProcedureAccess().getGroup(), "rule__Procedure__Group__0");
@@ -48,8 +52,16 @@ public class MiniGobstonesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMoverAccess().getGroup(), "rule__Mover__Group__0");
 					put(grammarAccess.getHayBolitasAccess().getGroup(), "rule__HayBolitas__Group__0");
 					put(grammarAccess.getPuedeMoverAccess().getGroup(), "rule__PuedeMover__Group__0");
+					put(grammarAccess.getVariableAccess().getGroup_0(), "rule__Variable__Group_0__0");
+					put(grammarAccess.getWhileAccess().getGroup(), "rule__While__Group__0");
+					put(grammarAccess.getForAccess().getGroup_0(), "rule__For__Group_0__0");
+					put(grammarAccess.getForAccess().getGroup_1(), "rule__For__Group_1__0");
+					put(grammarAccess.getForAccess().getGroup_2(), "rule__For__Group_2__0");
 					put(grammarAccess.getIfAccess().getGroup(), "rule__If__Group__0");
 					put(grammarAccess.getIfAccess().getGroup_8(), "rule__If__Group_8__0");
+					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
+					put(grammarAccess.getExpressionAccess().getGroup_3(), "rule__Expression__Group_3__0");
+					put(grammarAccess.getTerminalExpressionAccess().getGroup_0(), "rule__TerminalExpression__Group_0__0");
 					put(grammarAccess.getModelAccess().getMainAssignment(), "rule__Model__MainAssignment");
 					put(grammarAccess.getProcedureAccess().getNameAssignment_1(), "rule__Procedure__NameAssignment_1");
 					put(grammarAccess.getProcedureAccess().getCommandsAssignment_3(), "rule__Procedure__CommandsAssignment_3");
@@ -61,9 +73,21 @@ public class MiniGobstonesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMoverAccess().getDirAssignment_3(), "rule__Mover__DirAssignment_3");
 					put(grammarAccess.getHayBolitasAccess().getColorAssignment_2(), "rule__HayBolitas__ColorAssignment_2");
 					put(grammarAccess.getPuedeMoverAccess().getDirAssignment_2(), "rule__PuedeMover__DirAssignment_2");
+					put(grammarAccess.getVariableAccess().getVarNameAssignment_0_2(), "rule__Variable__VarNameAssignment_0_2");
+					put(grammarAccess.getWhileAccess().getExprAssignment_3(), "rule__While__ExprAssignment_3");
+					put(grammarAccess.getWhileAccess().getCommandsAssignment_6(), "rule__While__CommandsAssignment_6");
+					put(grammarAccess.getForAccess().getVarNameAssignment_0_2(), "rule__For__VarNameAssignment_0_2");
+					put(grammarAccess.getForAccess().getColorAAssignment_1_0(), "rule__For__ColorAAssignment_1_0");
+					put(grammarAccess.getForAccess().getColorBAssignment_2_0(), "rule__For__ColorBAssignment_2_0");
+					put(grammarAccess.getForAccess().getCommandAssignment_2_2(), "rule__For__CommandAssignment_2_2");
 					put(grammarAccess.getIfAccess().getExprAssignment_3(), "rule__If__ExprAssignment_3");
 					put(grammarAccess.getIfAccess().getCommandsThenAssignment_6(), "rule__If__CommandsThenAssignment_6");
 					put(grammarAccess.getIfAccess().getCommandsElseAssignment_8_2(), "rule__If__CommandsElseAssignment_8_2");
+					put(grammarAccess.getExpressionAccess().getOpNotAssignment_1(), "rule__Expression__OpNotAssignment_1");
+					put(grammarAccess.getExpressionAccess().getLeftAssignment_2(), "rule__Expression__LeftAssignment_2");
+					put(grammarAccess.getExpressionAccess().getOpAssignment_3_0(), "rule__Expression__OpAssignment_3_0");
+					put(grammarAccess.getExpressionAccess().getRightAssignment_3_1(), "rule__Expression__RightAssignment_3_1");
+					put(grammarAccess.getTerminalExpressionAccess().getExprAssignment_1(), "rule__TerminalExpression__ExprAssignment_1");
 				}
 			};
 		}

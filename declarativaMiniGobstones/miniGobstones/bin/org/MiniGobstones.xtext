@@ -12,7 +12,10 @@ Procedure:
 ;
 
 Command:
-	Poner | Mover | PonerN | MoverN | HayBolitas | PuedeMover | If
+	Poner | Mover | PonerN | MoverN 
+	| HayBolitas | PuedeMover 
+	| If | While | For 
+	| Variable
 ;
 
 PonerN:
@@ -48,9 +51,28 @@ PuedeMover:
 	'puedeMover' LPAR dir = Direccion RPAR
 ;
 
+Variable:
+	{Variable}
+	'var' varName = ID '=' INT | Booleans | Expression
+;
+
+While:
+	{While}
+	'While'LPAR expr = Expression RPAR LBRACE
+		commands += Command*
+	RBRACE
+;
+
+For:
+	{For}
+	'repeat' varName = ID 'in' INT | colorA=Color 'to' INT | colorB=Color LBRACE
+		Command += Command*
+	RBRACE   
+;
+
 If:
 	{If}
-	'if' LPAR expr = Booleans RPAR LBRACE
+	'if' LPAR expr = Expression RPAR LBRACE
 		commandsThen += Command+
 		RBRACE
 	('else'LBRACE
@@ -59,8 +81,22 @@ If:
 	)?
 ;
 
+Expression:
+	 {Operator}(opNot = '!')? left = TerminalExpression (op = Operator right = TerminalExpression)?
+;
+
+TerminalExpression returns Expression:
+	LPAR Expression RPAR | expr = Booleans
+;
+
 Booleans:
-	HayBolitas | PuedeMover
+	HayBolitas | PuedeMover 
+;
+
+Operator: //TODO Validate
+	'and' | 'or' |  '==' 
+	|  '<' | '>' |  '<=' |  '>=' 
+	|  '!=' |   '+' |  '-' 
 ;
 
 terminal LPAR : '(';

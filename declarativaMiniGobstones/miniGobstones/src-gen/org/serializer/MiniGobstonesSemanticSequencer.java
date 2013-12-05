@@ -13,16 +13,21 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.miniGobstones.Expression;
+import org.miniGobstones.For;
 import org.miniGobstones.HayBolitas;
 import org.miniGobstones.If;
 import org.miniGobstones.MiniGobstonesPackage;
 import org.miniGobstones.Model;
 import org.miniGobstones.Mover;
 import org.miniGobstones.MoverN;
+import org.miniGobstones.Operator;
 import org.miniGobstones.Poner;
 import org.miniGobstones.PonerN;
 import org.miniGobstones.Procedure;
 import org.miniGobstones.PuedeMover;
+import org.miniGobstones.Variable;
+import org.miniGobstones.While;
 import org.services.MiniGobstonesGrammarAccess;
 
 @SuppressWarnings("all")
@@ -33,10 +38,24 @@ public class MiniGobstonesSemanticSequencer extends AbstractDelegatingSemanticSe
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == MiniGobstonesPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case MiniGobstonesPackage.EXPRESSION:
+				if(context == grammarAccess.getTerminalExpressionRule()) {
+					sequence_TerminalExpression(context, (Expression) semanticObject); 
+					return; 
+				}
+				else break;
+			case MiniGobstonesPackage.FOR:
+				if(context == grammarAccess.getCommandRule() ||
+				   context == grammarAccess.getForRule()) {
+					sequence_For(context, (For) semanticObject); 
+					return; 
+				}
+				else break;
 			case MiniGobstonesPackage.HAY_BOLITAS:
 				if(context == grammarAccess.getBooleansRule() ||
 				   context == grammarAccess.getCommandRule() ||
-				   context == grammarAccess.getHayBolitasRule()) {
+				   context == grammarAccess.getHayBolitasRule() ||
+				   context == grammarAccess.getVariableRule()) {
 					sequence_HayBolitas(context, (HayBolitas) semanticObject); 
 					return; 
 				}
@@ -68,6 +87,15 @@ public class MiniGobstonesSemanticSequencer extends AbstractDelegatingSemanticSe
 					return; 
 				}
 				else break;
+			case MiniGobstonesPackage.OPERATOR:
+				if(context == grammarAccess.getCommandRule() ||
+				   context == grammarAccess.getExpressionRule() ||
+				   context == grammarAccess.getTerminalExpressionRule() ||
+				   context == grammarAccess.getVariableRule()) {
+					sequence_Expression(context, (Operator) semanticObject); 
+					return; 
+				}
+				else break;
 			case MiniGobstonesPackage.PONER:
 				if(context == grammarAccess.getCommandRule() ||
 				   context == grammarAccess.getPonerRule()) {
@@ -91,8 +119,23 @@ public class MiniGobstonesSemanticSequencer extends AbstractDelegatingSemanticSe
 			case MiniGobstonesPackage.PUEDE_MOVER:
 				if(context == grammarAccess.getBooleansRule() ||
 				   context == grammarAccess.getCommandRule() ||
-				   context == grammarAccess.getPuedeMoverRule()) {
+				   context == grammarAccess.getPuedeMoverRule() ||
+				   context == grammarAccess.getVariableRule()) {
 					sequence_PuedeMover(context, (PuedeMover) semanticObject); 
+					return; 
+				}
+				else break;
+			case MiniGobstonesPackage.VARIABLE:
+				if(context == grammarAccess.getCommandRule() ||
+				   context == grammarAccess.getVariableRule()) {
+					sequence_Variable(context, (Variable) semanticObject); 
+					return; 
+				}
+				else break;
+			case MiniGobstonesPackage.WHILE:
+				if(context == grammarAccess.getCommandRule() ||
+				   context == grammarAccess.getWhileRule()) {
+					sequence_While(context, (While) semanticObject); 
 					return; 
 				}
 				else break;
@@ -102,23 +145,34 @@ public class MiniGobstonesSemanticSequencer extends AbstractDelegatingSemanticSe
 	
 	/**
 	 * Constraint:
-	 *     color=Color
+	 *     (opNot='!'? left=TerminalExpression (op=Operator right=TerminalExpression)?)
 	 */
-	protected void sequence_HayBolitas(EObject context, HayBolitas semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MiniGobstonesPackage.Literals.HAY_BOLITAS__COLOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MiniGobstonesPackage.Literals.HAY_BOLITAS__COLOR));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getHayBolitasAccess().getColorColorEnumRuleCall_2_0(), semanticObject.getColor());
-		feeder.finish();
+	protected void sequence_Expression(EObject context, Operator semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (expr=Booleans commandsThen+=Command+ commandsElse+=Command*)
+	 *     varName=ID
+	 */
+	protected void sequence_For(EObject context, For semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     color=Color
+	 */
+	protected void sequence_HayBolitas(EObject context, HayBolitas semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=Expression commandsThen+=Command+ commandsElse+=Command*)
 	 */
 	protected void sequence_If(EObject context, If semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -225,13 +279,40 @@ public class MiniGobstonesSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     dir=Direccion
 	 */
 	protected void sequence_PuedeMover(EObject context, PuedeMover semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     expr=Booleans
+	 */
+	protected void sequence_TerminalExpression(EObject context, Expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     varName=ID
+	 */
+	protected void sequence_Variable(EObject context, Variable semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, MiniGobstonesPackage.Literals.PUEDE_MOVER__DIR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MiniGobstonesPackage.Literals.PUEDE_MOVER__DIR));
+			if(transientValues.isValueTransient(semanticObject, MiniGobstonesPackage.Literals.VARIABLE__VAR_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MiniGobstonesPackage.Literals.VARIABLE__VAR_NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPuedeMoverAccess().getDirDireccionEnumRuleCall_2_0(), semanticObject.getDir());
+		feeder.accept(grammarAccess.getVariableAccess().getVarNameIDTerminalRuleCall_0_2_0(), semanticObject.getVarName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (expr=Expression commands+=Command*)
+	 */
+	protected void sequence_While(EObject context, While semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

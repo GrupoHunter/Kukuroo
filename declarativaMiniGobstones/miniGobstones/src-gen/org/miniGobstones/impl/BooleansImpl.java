@@ -4,8 +4,6 @@ package org.miniGobstones.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.miniGobstones.Booleans;
 import org.miniGobstones.MiniGobstonesPackage;
 
@@ -18,7 +16,7 @@ import org.miniGobstones.MiniGobstonesPackage;
  *
  * @generated
  */
-public class BooleansImpl extends MinimalEObjectImpl.Container implements Booleans
+public class BooleansImpl extends VariableImpl implements Booleans
 {
   /**
    * <!-- begin-user-doc -->

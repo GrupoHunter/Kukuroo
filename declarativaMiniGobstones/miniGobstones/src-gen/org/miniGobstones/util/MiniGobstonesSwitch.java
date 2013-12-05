@@ -129,8 +129,9 @@ public class MiniGobstonesSwitch<T> extends Switch<T>
       {
         HayBolitas hayBolitas = (HayBolitas)theEObject;
         T result = caseHayBolitas(hayBolitas);
-        if (result == null) result = caseCommand(hayBolitas);
         if (result == null) result = caseBooleans(hayBolitas);
+        if (result == null) result = caseVariable(hayBolitas);
+        if (result == null) result = caseCommand(hayBolitas);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -138,8 +139,33 @@ public class MiniGobstonesSwitch<T> extends Switch<T>
       {
         PuedeMover puedeMover = (PuedeMover)theEObject;
         T result = casePuedeMover(puedeMover);
-        if (result == null) result = caseCommand(puedeMover);
         if (result == null) result = caseBooleans(puedeMover);
+        if (result == null) result = caseVariable(puedeMover);
+        if (result == null) result = caseCommand(puedeMover);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniGobstonesPackage.VARIABLE:
+      {
+        Variable variable = (Variable)theEObject;
+        T result = caseVariable(variable);
+        if (result == null) result = caseCommand(variable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniGobstonesPackage.WHILE:
+      {
+        While while_ = (While)theEObject;
+        T result = caseWhile(while_);
+        if (result == null) result = caseCommand(while_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniGobstonesPackage.FOR:
+      {
+        For for_ = (For)theEObject;
+        T result = caseFor(for_);
+        if (result == null) result = caseCommand(for_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -151,10 +177,31 @@ public class MiniGobstonesSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MiniGobstonesPackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = caseVariable(expression);
+        if (result == null) result = caseCommand(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MiniGobstonesPackage.BOOLEANS:
       {
         Booleans booleans = (Booleans)theEObject;
         T result = caseBooleans(booleans);
+        if (result == null) result = caseVariable(booleans);
+        if (result == null) result = caseCommand(booleans);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MiniGobstonesPackage.OPERATOR:
+      {
+        Operator operator = (Operator)theEObject;
+        T result = caseOperator(operator);
+        if (result == null) result = caseExpression(operator);
+        if (result == null) result = caseVariable(operator);
+        if (result == null) result = caseCommand(operator);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -307,6 +354,54 @@ public class MiniGobstonesSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariable(Variable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>While</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>While</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhile(While object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFor(For object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>If</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -323,6 +418,22 @@ public class MiniGobstonesSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Booleans</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -334,6 +445,22 @@ public class MiniGobstonesSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBooleans(Booleans object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Operator</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Operator</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOperator(Operator object)
   {
     return null;
   }

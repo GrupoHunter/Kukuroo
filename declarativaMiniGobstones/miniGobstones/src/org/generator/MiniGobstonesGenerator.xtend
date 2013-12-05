@@ -8,6 +8,7 @@ import org.miniGobstones.If
 import org.miniGobstones.Model
 import org.miniGobstones.Mover
 import org.miniGobstones.MoverN
+import org.miniGobstones.Operator
 import org.miniGobstones.Poner
 import org.miniGobstones.PonerN
 import org.miniGobstones.PuedeMover
@@ -21,7 +22,7 @@ class MiniGobstonesGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		var model = resource.contents.head as Model
-		fsa.generateFile('''«model.packageName»/«model.eResource.className».java''', model.toJavaCode);
+		fsa.generateFile('''«model.packageName»/«model.eResource.className.toFirstUpper».java''', model.toJavaCode);
 	}
 
 	def packageName(Model model) {
@@ -30,7 +31,7 @@ class MiniGobstonesGenerator implements IGenerator {
 
 	def className(Resource res) {
 		var name = res.URI.lastSegment
-		return name.substring(0, name.indexOf('.')).toFirstUpper
+		return name.substring(0, name.indexOf('.'))
 	}
 
 	def toJavaCode(Model model) {
@@ -42,7 +43,7 @@ class MiniGobstonesGenerator implements IGenerator {
 			/**
 				Generates code from your model «model.eResource.className».mbgs
 			**/
-			public class «model.eResource.className» {
+			public class «model.eResource.className.toFirstUpper» {
 				private static Cabezal cabezal = new Cabezal();
 				
 				public static void main(String[] args) {
@@ -54,42 +55,56 @@ class MiniGobstonesGenerator implements IGenerator {
 		'''
 	}
 
-	def compile(Model model) {'''
+	def compile(Model model) {
+		'''
 			«FOR command : model.main.commands»
 				«command.genCompile»
 			«ENDFOR»
 		'''
 	}
 
-	def dispatch String genCompile(Poner poner) {'''
+	def dispatch String genCompile(Poner poner) {
+		'''
 			cabezal.poner(Color.«poner.color»);
 		'''
 	}
 
-	def dispatch String genCompile(Mover mover) {'''
+	def dispatch String genCompile(Mover mover) {
+		'''
 			cabezal.mover(Direccion.«mover.dir»);
 		'''
 	}
 
-	def dispatch String genCompile(If ifthen) {'''
+	def dispatch String genCompile(If ifthen) {
+		'''
 			if(«ifthen.expr.genExpr»){
 				«FOR command : ifthen.commandsThen»
 					«command.genCompile»
 				«ENDFOR»
 			}«IF !ifthen.commandsElse.empty»
-					else{
-						«FOR command : ifthen.commandsElse»
-							«command.genCompile»
-						«ENDFOR»
-					}
+						else{
+							«FOR command : ifthen.commandsElse»
+								«command.genCompile»
+							«ENDFOR»
+						}
 			«ENDIF»
+		'''
+	}
+
+	def dispatch String genExpr(Operator operator) {
+		'''
+«««			«IF !operator.opNot.empty»«operator.opNot»«ENDIF»
+«««			«operator.right.genExpr»
+«««			«IF !operator.op.empty»
+«««				«operator.op»«operator.right.genExpr»
+«««			«ENDIF»
 		'''
 	}
 
 	def dispatch String genExpr(HayBolitas hayBolitas) {
 		'''cabezal.hayBolitas(Color.«hayBolitas.color»)'''
 	}
-	
+
 	def dispatch String genExpr(PuedeMover puedeMover) {
 		'''cabezal.puedeMover(Direccion.«puedeMover.dir»)'''
 	}
@@ -109,5 +124,5 @@ class MiniGobstonesGenerator implements IGenerator {
 				
 		'''
 	}
-	
+
 }

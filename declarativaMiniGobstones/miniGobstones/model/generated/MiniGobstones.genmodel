@@ -47,11 +47,33 @@
     <genClasses ecoreClass="MiniGobstones.ecore#//PuedeMover">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniGobstones.ecore#//PuedeMover/dir"/>
     </genClasses>
+    <genClasses ecoreClass="MiniGobstones.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniGobstones.ecore#//Variable/varName"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniGobstones.ecore#//While">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//While/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//While/commands"/>
+    </genClasses>
+    <genClasses ecoreClass="MiniGobstones.ecore#//For">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniGobstones.ecore#//For/varName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniGobstones.ecore#//For/colorA"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniGobstones.ecore#//For/colorB"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//For/Command"/>
+    </genClasses>
     <genClasses ecoreClass="MiniGobstones.ecore#//If">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//If/expr"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//If/commandsThen"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//If/commandsElse"/>
     </genClasses>
+    <genClasses ecoreClass="MiniGobstones.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//Expression/expr"/>
+    </genClasses>
     <genClasses ecoreClass="MiniGobstones.ecore#//Booleans"/>
+    <genClasses ecoreClass="MiniGobstones.ecore#//Operator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniGobstones.ecore#//Operator/opNot"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//Operator/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MiniGobstones.ecore#//Operator/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MiniGobstones.ecore#//Operator/right"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

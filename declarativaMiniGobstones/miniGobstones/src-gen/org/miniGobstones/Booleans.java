@@ -2,7 +2,6 @@
  */
 package org.miniGobstones;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Booleans extends EObject
+public interface Booleans extends Variable
 {
 } // Booleans

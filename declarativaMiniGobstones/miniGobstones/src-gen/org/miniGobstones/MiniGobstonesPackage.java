@@ -282,13 +282,22 @@ public interface MiniGobstonesPackage extends EPackage
   int HAY_BOLITAS = 7;
 
   /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HAY_BOLITAS__VAR_NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Color</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int HAY_BOLITAS__COLOR = COMMAND_FEATURE_COUNT + 0;
+  int HAY_BOLITAS__COLOR = COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Hay Bolitas</em>' class.
@@ -297,7 +306,7 @@ public interface MiniGobstonesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int HAY_BOLITAS_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+  int HAY_BOLITAS_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.miniGobstones.impl.PuedeMoverImpl <em>Puede Mover</em>}' class.
@@ -310,13 +319,22 @@ public interface MiniGobstonesPackage extends EPackage
   int PUEDE_MOVER = 8;
 
   /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PUEDE_MOVER__VAR_NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Dir</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PUEDE_MOVER__DIR = COMMAND_FEATURE_COUNT + 0;
+  int PUEDE_MOVER__DIR = COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Puede Mover</em>' class.
@@ -325,7 +343,127 @@ public interface MiniGobstonesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PUEDE_MOVER_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+  int PUEDE_MOVER_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.miniGobstones.impl.VariableImpl <em>Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.miniGobstones.impl.VariableImpl
+   * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getVariable()
+   * @generated
+   */
+  int VARIABLE = 9;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE__VAR_NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.miniGobstones.impl.WhileImpl <em>While</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.miniGobstones.impl.WhileImpl
+   * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getWhile()
+   * @generated
+   */
+  int WHILE = 10;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE__EXPR = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Commands</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE__COMMANDS = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>While</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.miniGobstones.impl.ForImpl <em>For</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.miniGobstones.impl.ForImpl
+   * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getFor()
+   * @generated
+   */
+  int FOR = 11;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__VAR_NAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Color A</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__COLOR_A = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Color B</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__COLOR_B = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Command</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR__COMMAND = COMMAND_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>For</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.miniGobstones.impl.IfImpl <em>If</em>}' class.
@@ -335,7 +473,7 @@ public interface MiniGobstonesPackage extends EPackage
    * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getIf()
    * @generated
    */
-  int IF = 9;
+  int IF = 12;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -374,6 +512,43 @@ public interface MiniGobstonesPackage extends EPackage
   int IF_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link org.miniGobstones.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.miniGobstones.impl.ExpressionImpl
+   * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 13;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__VAR_NAME = VARIABLE__VAR_NAME;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__EXPR = VARIABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.miniGobstones.impl.BooleansImpl <em>Booleans</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -381,7 +556,16 @@ public interface MiniGobstonesPackage extends EPackage
    * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getBooleans()
    * @generated
    */
-  int BOOLEANS = 10;
+  int BOOLEANS = 14;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEANS__VAR_NAME = VARIABLE__VAR_NAME;
 
   /**
    * The number of structural features of the '<em>Booleans</em>' class.
@@ -390,7 +574,80 @@ public interface MiniGobstonesPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BOOLEANS_FEATURE_COUNT = 0;
+  int BOOLEANS_FEATURE_COUNT = VARIABLE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.miniGobstones.impl.OperatorImpl <em>Operator</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.miniGobstones.impl.OperatorImpl
+   * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getOperator()
+   * @generated
+   */
+  int OPERATOR = 15;
+
+  /**
+   * The feature id for the '<em><b>Var Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__VAR_NAME = EXPRESSION__VAR_NAME;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__EXPR = EXPRESSION__EXPR;
+
+  /**
+   * The feature id for the '<em><b>Op Not</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__OP_NOT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__LEFT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__OP = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR__RIGHT = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Operator</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATOR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.miniGobstones.Color <em>Color</em>}' enum.
@@ -400,7 +657,7 @@ public interface MiniGobstonesPackage extends EPackage
    * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getColor()
    * @generated
    */
-  int COLOR = 11;
+  int COLOR = 16;
 
   /**
    * The meta object id for the '{@link org.miniGobstones.Direccion <em>Direccion</em>}' enum.
@@ -410,7 +667,7 @@ public interface MiniGobstonesPackage extends EPackage
    * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getDireccion()
    * @generated
    */
-  int DIRECCION = 12;
+  int DIRECCION = 17;
 
 
   /**
@@ -625,6 +882,113 @@ public interface MiniGobstonesPackage extends EPackage
   EAttribute getPuedeMover_Dir();
 
   /**
+   * Returns the meta object for class '{@link org.miniGobstones.Variable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable</em>'.
+   * @see org.miniGobstones.Variable
+   * @generated
+   */
+  EClass getVariable();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.miniGobstones.Variable#getVarName <em>Var Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Var Name</em>'.
+   * @see org.miniGobstones.Variable#getVarName()
+   * @see #getVariable()
+   * @generated
+   */
+  EAttribute getVariable_VarName();
+
+  /**
+   * Returns the meta object for class '{@link org.miniGobstones.While <em>While</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>While</em>'.
+   * @see org.miniGobstones.While
+   * @generated
+   */
+  EClass getWhile();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.miniGobstones.While#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.miniGobstones.While#getExpr()
+   * @see #getWhile()
+   * @generated
+   */
+  EReference getWhile_Expr();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.miniGobstones.While#getCommands <em>Commands</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Commands</em>'.
+   * @see org.miniGobstones.While#getCommands()
+   * @see #getWhile()
+   * @generated
+   */
+  EReference getWhile_Commands();
+
+  /**
+   * Returns the meta object for class '{@link org.miniGobstones.For <em>For</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>For</em>'.
+   * @see org.miniGobstones.For
+   * @generated
+   */
+  EClass getFor();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.miniGobstones.For#getVarName <em>Var Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Var Name</em>'.
+   * @see org.miniGobstones.For#getVarName()
+   * @see #getFor()
+   * @generated
+   */
+  EAttribute getFor_VarName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.miniGobstones.For#getColorA <em>Color A</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Color A</em>'.
+   * @see org.miniGobstones.For#getColorA()
+   * @see #getFor()
+   * @generated
+   */
+  EAttribute getFor_ColorA();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.miniGobstones.For#getColorB <em>Color B</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Color B</em>'.
+   * @see org.miniGobstones.For#getColorB()
+   * @see #getFor()
+   * @generated
+   */
+  EAttribute getFor_ColorB();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.miniGobstones.For#getCommand <em>Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Command</em>'.
+   * @see org.miniGobstones.For#getCommand()
+   * @see #getFor()
+   * @generated
+   */
+  EReference getFor_Command();
+
+  /**
    * Returns the meta object for class '{@link org.miniGobstones.If <em>If</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -668,6 +1032,27 @@ public interface MiniGobstonesPackage extends EPackage
   EReference getIf_CommandsElse();
 
   /**
+   * Returns the meta object for class '{@link org.miniGobstones.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see org.miniGobstones.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.miniGobstones.Expression#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see org.miniGobstones.Expression#getExpr()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Expr();
+
+  /**
    * Returns the meta object for class '{@link org.miniGobstones.Booleans <em>Booleans</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -676,6 +1061,60 @@ public interface MiniGobstonesPackage extends EPackage
    * @generated
    */
   EClass getBooleans();
+
+  /**
+   * Returns the meta object for class '{@link org.miniGobstones.Operator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Operator</em>'.
+   * @see org.miniGobstones.Operator
+   * @generated
+   */
+  EClass getOperator();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.miniGobstones.Operator#getOpNot <em>Op Not</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op Not</em>'.
+   * @see org.miniGobstones.Operator#getOpNot()
+   * @see #getOperator()
+   * @generated
+   */
+  EAttribute getOperator_OpNot();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.miniGobstones.Operator#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.miniGobstones.Operator#getLeft()
+   * @see #getOperator()
+   * @generated
+   */
+  EReference getOperator_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.miniGobstones.Operator#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.miniGobstones.Operator#getOp()
+   * @see #getOperator()
+   * @generated
+   */
+  EAttribute getOperator_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.miniGobstones.Operator#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.miniGobstones.Operator#getRight()
+   * @see #getOperator()
+   * @generated
+   */
+  EReference getOperator_Right();
 
   /**
    * Returns the meta object for enum '{@link org.miniGobstones.Color <em>Color</em>}'.
@@ -899,6 +1338,92 @@ public interface MiniGobstonesPackage extends EPackage
     EAttribute PUEDE_MOVER__DIR = eINSTANCE.getPuedeMover_Dir();
 
     /**
+     * The meta object literal for the '{@link org.miniGobstones.impl.VariableImpl <em>Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.miniGobstones.impl.VariableImpl
+     * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getVariable()
+     * @generated
+     */
+    EClass VARIABLE = eINSTANCE.getVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Var Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE__VAR_NAME = eINSTANCE.getVariable_VarName();
+
+    /**
+     * The meta object literal for the '{@link org.miniGobstones.impl.WhileImpl <em>While</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.miniGobstones.impl.WhileImpl
+     * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getWhile()
+     * @generated
+     */
+    EClass WHILE = eINSTANCE.getWhile();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE__EXPR = eINSTANCE.getWhile_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE__COMMANDS = eINSTANCE.getWhile_Commands();
+
+    /**
+     * The meta object literal for the '{@link org.miniGobstones.impl.ForImpl <em>For</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.miniGobstones.impl.ForImpl
+     * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getFor()
+     * @generated
+     */
+    EClass FOR = eINSTANCE.getFor();
+
+    /**
+     * The meta object literal for the '<em><b>Var Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOR__VAR_NAME = eINSTANCE.getFor_VarName();
+
+    /**
+     * The meta object literal for the '<em><b>Color A</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOR__COLOR_A = eINSTANCE.getFor_ColorA();
+
+    /**
+     * The meta object literal for the '<em><b>Color B</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOR__COLOR_B = eINSTANCE.getFor_ColorB();
+
+    /**
+     * The meta object literal for the '<em><b>Command</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR__COMMAND = eINSTANCE.getFor_Command();
+
+    /**
      * The meta object literal for the '{@link org.miniGobstones.impl.IfImpl <em>If</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -933,6 +1458,24 @@ public interface MiniGobstonesPackage extends EPackage
     EReference IF__COMMANDS_ELSE = eINSTANCE.getIf_CommandsElse();
 
     /**
+     * The meta object literal for the '{@link org.miniGobstones.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.miniGobstones.impl.ExpressionImpl
+     * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__EXPR = eINSTANCE.getExpression_Expr();
+
+    /**
      * The meta object literal for the '{@link org.miniGobstones.impl.BooleansImpl <em>Booleans</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -941,6 +1484,48 @@ public interface MiniGobstonesPackage extends EPackage
      * @generated
      */
     EClass BOOLEANS = eINSTANCE.getBooleans();
+
+    /**
+     * The meta object literal for the '{@link org.miniGobstones.impl.OperatorImpl <em>Operator</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.miniGobstones.impl.OperatorImpl
+     * @see org.miniGobstones.impl.MiniGobstonesPackageImpl#getOperator()
+     * @generated
+     */
+    EClass OPERATOR = eINSTANCE.getOperator();
+
+    /**
+     * The meta object literal for the '<em><b>Op Not</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATOR__OP_NOT = eINSTANCE.getOperator_OpNot();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATOR__LEFT = eINSTANCE.getOperator_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATOR__OP = eINSTANCE.getOperator_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATOR__RIGHT = eINSTANCE.getOperator_Right();
 
     /**
      * The meta object literal for the '{@link org.miniGobstones.Color <em>Color</em>}' enum.

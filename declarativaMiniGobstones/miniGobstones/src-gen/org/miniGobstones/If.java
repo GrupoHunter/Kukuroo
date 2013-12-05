@@ -33,12 +33,12 @@ public interface If extends Command
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Booleans)
+   * @see #setExpr(Expression)
    * @see org.miniGobstones.MiniGobstonesPackage#getIf_Expr()
    * @model containment="true"
    * @generated
    */
-  Booleans getExpr();
+  Expression getExpr();
 
   /**
    * Sets the value of the '{@link org.miniGobstones.If#getExpr <em>Expr</em>}' containment reference.
@@ -48,7 +48,7 @@ public interface If extends Command
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Booleans value);
+  void setExpr(Expression value);
 
   /**
    * Returns the value of the '<em><b>Commands Then</b></em>' containment reference list.

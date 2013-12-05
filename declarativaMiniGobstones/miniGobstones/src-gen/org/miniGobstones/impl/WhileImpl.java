@@ -19,25 +19,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.miniGobstones.Command;
 import org.miniGobstones.Expression;
-import org.miniGobstones.If;
 import org.miniGobstones.MiniGobstonesPackage;
+import org.miniGobstones.While;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>If</b></em>'.
+ * An implementation of the model object '<em><b>While</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.miniGobstones.impl.IfImpl#getExpr <em>Expr</em>}</li>
- *   <li>{@link org.miniGobstones.impl.IfImpl#getCommandsThen <em>Commands Then</em>}</li>
- *   <li>{@link org.miniGobstones.impl.IfImpl#getCommandsElse <em>Commands Else</em>}</li>
+ *   <li>{@link org.miniGobstones.impl.WhileImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.miniGobstones.impl.WhileImpl#getCommands <em>Commands</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IfImpl extends CommandImpl implements If
+public class WhileImpl extends CommandImpl implements While
 {
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -50,31 +49,21 @@ public class IfImpl extends CommandImpl implements If
   protected Expression expr;
 
   /**
-   * The cached value of the '{@link #getCommandsThen() <em>Commands Then</em>}' containment reference list.
+   * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCommandsThen()
+   * @see #getCommands()
    * @generated
    * @ordered
    */
-  protected EList<Command> commandsThen;
-
-  /**
-   * The cached value of the '{@link #getCommandsElse() <em>Commands Else</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCommandsElse()
-   * @generated
-   * @ordered
-   */
-  protected EList<Command> commandsElse;
+  protected EList<Command> commands;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IfImpl()
+  protected WhileImpl()
   {
     super();
   }
@@ -87,7 +76,7 @@ public class IfImpl extends CommandImpl implements If
   @Override
   protected EClass eStaticClass()
   {
-    return MiniGobstonesPackage.Literals.IF;
+    return MiniGobstonesPackage.Literals.WHILE;
   }
 
   /**
@@ -111,7 +100,7 @@ public class IfImpl extends CommandImpl implements If
     expr = newExpr;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MiniGobstonesPackage.IF__EXPR, oldExpr, newExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MiniGobstonesPackage.WHILE__EXPR, oldExpr, newExpr);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -128,14 +117,14 @@ public class IfImpl extends CommandImpl implements If
     {
       NotificationChain msgs = null;
       if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MiniGobstonesPackage.IF__EXPR, null, msgs);
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MiniGobstonesPackage.WHILE__EXPR, null, msgs);
       if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MiniGobstonesPackage.IF__EXPR, null, msgs);
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MiniGobstonesPackage.WHILE__EXPR, null, msgs);
       msgs = basicSetExpr(newExpr, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MiniGobstonesPackage.IF__EXPR, newExpr, newExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniGobstonesPackage.WHILE__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -143,27 +132,13 @@ public class IfImpl extends CommandImpl implements If
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Command> getCommandsThen()
+  public EList<Command> getCommands()
   {
-    if (commandsThen == null)
+    if (commands == null)
     {
-      commandsThen = new EObjectContainmentEList<Command>(Command.class, this, MiniGobstonesPackage.IF__COMMANDS_THEN);
+      commands = new EObjectContainmentEList<Command>(Command.class, this, MiniGobstonesPackage.WHILE__COMMANDS);
     }
-    return commandsThen;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Command> getCommandsElse()
-  {
-    if (commandsElse == null)
-    {
-      commandsElse = new EObjectContainmentEList<Command>(Command.class, this, MiniGobstonesPackage.IF__COMMANDS_ELSE);
-    }
-    return commandsElse;
+    return commands;
   }
 
   /**
@@ -176,12 +151,10 @@ public class IfImpl extends CommandImpl implements If
   {
     switch (featureID)
     {
-      case MiniGobstonesPackage.IF__EXPR:
+      case MiniGobstonesPackage.WHILE__EXPR:
         return basicSetExpr(null, msgs);
-      case MiniGobstonesPackage.IF__COMMANDS_THEN:
-        return ((InternalEList<?>)getCommandsThen()).basicRemove(otherEnd, msgs);
-      case MiniGobstonesPackage.IF__COMMANDS_ELSE:
-        return ((InternalEList<?>)getCommandsElse()).basicRemove(otherEnd, msgs);
+      case MiniGobstonesPackage.WHILE__COMMANDS:
+        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -196,12 +169,10 @@ public class IfImpl extends CommandImpl implements If
   {
     switch (featureID)
     {
-      case MiniGobstonesPackage.IF__EXPR:
+      case MiniGobstonesPackage.WHILE__EXPR:
         return getExpr();
-      case MiniGobstonesPackage.IF__COMMANDS_THEN:
-        return getCommandsThen();
-      case MiniGobstonesPackage.IF__COMMANDS_ELSE:
-        return getCommandsElse();
+      case MiniGobstonesPackage.WHILE__COMMANDS:
+        return getCommands();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -217,16 +188,12 @@ public class IfImpl extends CommandImpl implements If
   {
     switch (featureID)
     {
-      case MiniGobstonesPackage.IF__EXPR:
+      case MiniGobstonesPackage.WHILE__EXPR:
         setExpr((Expression)newValue);
         return;
-      case MiniGobstonesPackage.IF__COMMANDS_THEN:
-        getCommandsThen().clear();
-        getCommandsThen().addAll((Collection<? extends Command>)newValue);
-        return;
-      case MiniGobstonesPackage.IF__COMMANDS_ELSE:
-        getCommandsElse().clear();
-        getCommandsElse().addAll((Collection<? extends Command>)newValue);
+      case MiniGobstonesPackage.WHILE__COMMANDS:
+        getCommands().clear();
+        getCommands().addAll((Collection<? extends Command>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -242,14 +209,11 @@ public class IfImpl extends CommandImpl implements If
   {
     switch (featureID)
     {
-      case MiniGobstonesPackage.IF__EXPR:
+      case MiniGobstonesPackage.WHILE__EXPR:
         setExpr((Expression)null);
         return;
-      case MiniGobstonesPackage.IF__COMMANDS_THEN:
-        getCommandsThen().clear();
-        return;
-      case MiniGobstonesPackage.IF__COMMANDS_ELSE:
-        getCommandsElse().clear();
+      case MiniGobstonesPackage.WHILE__COMMANDS:
+        getCommands().clear();
         return;
     }
     super.eUnset(featureID);
@@ -265,14 +229,12 @@ public class IfImpl extends CommandImpl implements If
   {
     switch (featureID)
     {
-      case MiniGobstonesPackage.IF__EXPR:
+      case MiniGobstonesPackage.WHILE__EXPR:
         return expr != null;
-      case MiniGobstonesPackage.IF__COMMANDS_THEN:
-        return commandsThen != null && !commandsThen.isEmpty();
-      case MiniGobstonesPackage.IF__COMMANDS_ELSE:
-        return commandsElse != null && !commandsElse.isEmpty();
+      case MiniGobstonesPackage.WHILE__COMMANDS:
+        return commands != null && !commands.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //IfImpl
+} //WhileImpl

@@ -23,7 +23,9 @@ public class MiniGobstonesSyntacticSequencer extends AbstractSyntacticSequencer 
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getLBRACERule())
+		if(ruleCall.getRule() == grammarAccess.getINTRule())
+			return getINTToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getLBRACERule())
 			return getLBRACEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getLPARRule())
 			return getLPARToken(semanticObject, ruleCall, node);
@@ -31,6 +33,15 @@ public class MiniGobstonesSyntacticSequencer extends AbstractSyntacticSequencer 
 			return getRBRACEToken(semanticObject, ruleCall, node);
 		else if(ruleCall.getRule() == grammarAccess.getRPARRule())
 			return getRPARToken(semanticObject, ruleCall, node);
+		return "";
+	}
+	
+	/**
+	 * terminal INT returns ecore::EInt: ('0'..'9')+;
+	 */
+	protected String getINTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
 		return "";
 	}
 	

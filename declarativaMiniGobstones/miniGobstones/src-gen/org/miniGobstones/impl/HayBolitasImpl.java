@@ -8,9 +8,11 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.miniGobstones.Booleans;
 import org.miniGobstones.Color;
 import org.miniGobstones.HayBolitas;
 import org.miniGobstones.MiniGobstonesPackage;
+import org.miniGobstones.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +21,7 @@ import org.miniGobstones.MiniGobstonesPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.miniGobstones.impl.HayBolitasImpl#getVarName <em>Var Name</em>}</li>
  *   <li>{@link org.miniGobstones.impl.HayBolitasImpl#getColor <em>Color</em>}</li>
  * </ul>
  * </p>
@@ -27,6 +30,26 @@ import org.miniGobstones.MiniGobstonesPackage;
  */
 public class HayBolitasImpl extends CommandImpl implements HayBolitas
 {
+  /**
+   * The default value of the '{@link #getVarName() <em>Var Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVarName()
+   * @generated
+   * @ordered
+   */
+  protected static final String VAR_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getVarName() <em>Var Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVarName()
+   * @generated
+   * @ordered
+   */
+  protected String varName = VAR_NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -73,6 +96,29 @@ public class HayBolitasImpl extends CommandImpl implements HayBolitas
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getVarName()
+  {
+    return varName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVarName(String newVarName)
+  {
+    String oldVarName = varName;
+    varName = newVarName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MiniGobstonesPackage.HAY_BOLITAS__VAR_NAME, oldVarName, varName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Color getColor()
   {
     return color;
@@ -101,6 +147,8 @@ public class HayBolitasImpl extends CommandImpl implements HayBolitas
   {
     switch (featureID)
     {
+      case MiniGobstonesPackage.HAY_BOLITAS__VAR_NAME:
+        return getVarName();
       case MiniGobstonesPackage.HAY_BOLITAS__COLOR:
         return getColor();
     }
@@ -117,6 +165,9 @@ public class HayBolitasImpl extends CommandImpl implements HayBolitas
   {
     switch (featureID)
     {
+      case MiniGobstonesPackage.HAY_BOLITAS__VAR_NAME:
+        setVarName((String)newValue);
+        return;
       case MiniGobstonesPackage.HAY_BOLITAS__COLOR:
         setColor((Color)newValue);
         return;
@@ -134,6 +185,9 @@ public class HayBolitasImpl extends CommandImpl implements HayBolitas
   {
     switch (featureID)
     {
+      case MiniGobstonesPackage.HAY_BOLITAS__VAR_NAME:
+        setVarName(VAR_NAME_EDEFAULT);
+        return;
       case MiniGobstonesPackage.HAY_BOLITAS__COLOR:
         setColor(COLOR_EDEFAULT);
         return;
@@ -151,10 +205,64 @@ public class HayBolitasImpl extends CommandImpl implements HayBolitas
   {
     switch (featureID)
     {
+      case MiniGobstonesPackage.HAY_BOLITAS__VAR_NAME:
+        return VAR_NAME_EDEFAULT == null ? varName != null : !VAR_NAME_EDEFAULT.equals(varName);
       case MiniGobstonesPackage.HAY_BOLITAS__COLOR:
         return color != COLOR_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Variable.class)
+    {
+      switch (derivedFeatureID)
+      {
+        case MiniGobstonesPackage.HAY_BOLITAS__VAR_NAME: return MiniGobstonesPackage.VARIABLE__VAR_NAME;
+        default: return -1;
+      }
+    }
+    if (baseClass == Booleans.class)
+    {
+      switch (derivedFeatureID)
+      {
+        default: return -1;
+      }
+    }
+    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
+  {
+    if (baseClass == Variable.class)
+    {
+      switch (baseFeatureID)
+      {
+        case MiniGobstonesPackage.VARIABLE__VAR_NAME: return MiniGobstonesPackage.HAY_BOLITAS__VAR_NAME;
+        default: return -1;
+      }
+    }
+    if (baseClass == Booleans.class)
+    {
+      switch (baseFeatureID)
+      {
+        default: return -1;
+      }
+    }
+    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
   }
 
   /**
@@ -168,7 +276,9 @@ public class HayBolitasImpl extends CommandImpl implements HayBolitas
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (color: ");
+    result.append(" (varName: ");
+    result.append(varName);
+    result.append(", color: ");
     result.append(color);
     result.append(')');
     return result.toString();

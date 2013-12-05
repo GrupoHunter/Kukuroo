@@ -43,13 +43,41 @@
   <eClassifiers xsi:type="ecore:EClass" name="PuedeMover" eSuperTypes="#//Command #//Booleans">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dir" eType="#//Direccion"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="While" eSuperTypes="#//Command">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
+        eType="#//Command" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="For" eSuperTypes="#//Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorA" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colorB" eType="#//Color"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Command" upperBound="-1"
+        eType="#//Command" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="#//Command">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Booleans"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commandsThen" upperBound="-1"
         eType="#//Command" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commandsElse" upperBound="-1"
         eType="#//Command" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Booleans"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Variable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Booleans"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Booleans" eSuperTypes="#//Variable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operator" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="opNot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

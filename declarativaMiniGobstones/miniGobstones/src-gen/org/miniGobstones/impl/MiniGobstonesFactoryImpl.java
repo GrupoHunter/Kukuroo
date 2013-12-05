@@ -74,8 +74,13 @@ public class MiniGobstonesFactoryImpl extends EFactoryImpl implements MiniGobsto
       case MiniGobstonesPackage.MOVER: return createMover();
       case MiniGobstonesPackage.HAY_BOLITAS: return createHayBolitas();
       case MiniGobstonesPackage.PUEDE_MOVER: return createPuedeMover();
+      case MiniGobstonesPackage.VARIABLE: return createVariable();
+      case MiniGobstonesPackage.WHILE: return createWhile();
+      case MiniGobstonesPackage.FOR: return createFor();
       case MiniGobstonesPackage.IF: return createIf();
+      case MiniGobstonesPackage.EXPRESSION: return createExpression();
       case MiniGobstonesPackage.BOOLEANS: return createBooleans();
+      case MiniGobstonesPackage.OPERATOR: return createOperator();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -223,6 +228,39 @@ public class MiniGobstonesFactoryImpl extends EFactoryImpl implements MiniGobsto
    * <!-- end-user-doc -->
    * @generated
    */
+  public Variable createVariable()
+  {
+    VariableImpl variable = new VariableImpl();
+    return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public While createWhile()
+  {
+    WhileImpl while_ = new WhileImpl();
+    return while_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public For createFor()
+  {
+    ForImpl for_ = new ForImpl();
+    return for_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public If createIf()
   {
     IfImpl if_ = new IfImpl();
@@ -234,10 +272,32 @@ public class MiniGobstonesFactoryImpl extends EFactoryImpl implements MiniGobsto
    * <!-- end-user-doc -->
    * @generated
    */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Booleans createBooleans()
   {
     BooleansImpl booleans = new BooleansImpl();
     return booleans;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Operator createOperator()
+  {
+    OperatorImpl operator = new OperatorImpl();
+    return operator;
   }
 
   /**
