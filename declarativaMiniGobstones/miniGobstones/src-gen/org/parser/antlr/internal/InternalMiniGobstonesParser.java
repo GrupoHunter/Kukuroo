@@ -41,8 +41,8 @@ public class InternalMiniGobstonesParser extends AbstractInternalAntlrParser {
     public static final int RULE_SL_COMMENT=12;
     public static final int EOF=-1;
     public static final int RULE_ML_COMMENT=11;
-    public static final int T__30=30;
     public static final int T__19=19;
+    public static final int T__30=30;
     public static final int T__31=31;
     public static final int RULE_STRING=10;
     public static final int T__32=32;

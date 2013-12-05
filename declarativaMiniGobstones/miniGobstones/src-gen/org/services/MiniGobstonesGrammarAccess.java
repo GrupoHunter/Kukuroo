@@ -367,8 +367,7 @@ public class MiniGobstonesGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRBRACETerminalRuleCall_8_3 = (RuleCall)cGroup_8.eContents().get(3);
 		
 		//If:
-		//	{If} "if" LPAR expr=Booleans RPAR LBRACE commandsThen+=Command+ RBRACE ("else" LBRACE commandsElse+=Command+
-		//	RBRACE)?;
+		//	{If} "if" LPAR expr=Booleans RPAR LBRACE commandsThen+=Command+ RBRACE ("else" LBRACE commandsElse+=Command+ RBRACE)?;
 		public ParserRule getRule() { return rule; }
 
 		//{If} "if" LPAR expr=Booleans RPAR LBRACE commandsThen+=Command+ RBRACE ("else" LBRACE commandsElse+=Command+ RBRACE)?
@@ -699,8 +698,7 @@ public class MiniGobstonesGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//If:
-	//	{If} "if" LPAR expr=Booleans RPAR LBRACE commandsThen+=Command+ RBRACE ("else" LBRACE commandsElse+=Command+
-	//	RBRACE)?;
+	//	{If} "if" LPAR expr=Booleans RPAR LBRACE commandsThen+=Command+ RBRACE ("else" LBRACE commandsElse+=Command+ RBRACE)?;
 	public IfElements getIfAccess() {
 		return (pIf != null) ? pIf : (pIf = new IfElements());
 	}

@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class InternalMiniGobstonesLexer extends Lexer {
     public static final int RULE_ID=8;
     public static final int T__29=29;
-    public static final int RULE_RBRACE=5;
     public static final int T__28=28;
+    public static final int RULE_RBRACE=5;
     public static final int T__27=27;
     public static final int T__26=26;
     public static final int T__25=25;
@@ -29,8 +29,8 @@ public class InternalMiniGobstonesLexer extends Lexer {
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=12;
     public static final int RULE_ML_COMMENT=11;
-    public static final int T__19=19;
     public static final int T__30=30;
+    public static final int T__19=19;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int RULE_STRING=10;
@@ -1262,21 +1262,21 @@ public class InternalMiniGobstonesLexer extends Lexer {
         "\1\uffff\1\60\1\uffff\1\151\1\162\1\166\2\uffff\1\164\2\145\1\141"+
         "\1\60\1\162\1\163\1\uffff\2\60\2\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\145\1\157\1\172\1\157\1\165\1\163\1\145\1\165\1\157"+
-        "\1\uffff\1\157\1\141\1\146\1\154\4\uffff\1\172\2\uffff\2\uffff\1"+
-        "\57\2\uffff\1\162\1\uffff\1\152\1\165\1\147\2\162\1\164\1\163\1"+
-        "\157\1\145\1\156\1\uffff\1\166\1\171\1\172\1\163\11\uffff\1\144"+
-        "\1\157\1\154\1\162\1\164\1\172\1\145\1\164\1\143\1\144\2\145\1\102"+
-        "\1\uffff\2\145\2\172\1\157\1\145\1\uffff\1\172\3\145\2\162\1\157"+
-        "\2\172\2\uffff\2\172\1\uffff\1\172\1\144\1\115\2\172\1\154\5\uffff"+
-        "\1\165\1\157\1\172\1\uffff\1\172\1\uffff\1\151\1\162\1\166\2\uffff"+
-        "\1\164\2\145\1\141\1\172\1\162\1\163\1\uffff\2\172\2\uffff";
+        "\1\uffff\1\145\1\157\1\172\1\157\1\165\1\163\1\145\1\165\1\157\1"+
+        "\uffff\1\157\1\141\1\146\1\154\4\uffff\1\172\2\uffff\2\uffff\1\57"+
+        "\2\uffff\1\162\1\uffff\1\152\1\165\1\147\2\162\1\164\1\163\1\157"+
+        "\1\145\1\156\1\uffff\1\166\1\171\1\172\1\163\11\uffff\1\144\1\157"+
+        "\1\154\1\162\1\164\1\172\1\145\1\164\1\143\1\144\2\145\1\102\1\uffff"+
+        "\2\145\2\172\1\157\1\145\1\uffff\1\172\3\145\2\162\1\157\2\172\2"+
+        "\uffff\2\172\1\uffff\1\172\1\144\1\115\2\172\1\154\5\uffff\1\165"+
+        "\1\157\1\172\1\uffff\1\172\1\uffff\1\151\1\162\1\166\2\uffff\1\164"+
+        "\2\145\1\141\1\172\1\162\1\163\1\uffff\2\172\2\uffff";
     static final String DFA12_acceptS =
-        "\12\uffff\1\13\4\uffff\1\23\1\24\1\25\1\26\1\uffff\1\27\1\30\3"+
-        "\uffff\1\34\1\35\1\uffff\1\27\12\uffff\1\13\4\uffff\1\23\1\24\1"+
-        "\25\1\26\1\30\1\31\1\32\1\33\1\34\15\uffff\1\21\6\uffff\1\6\11\uffff"+
-        "\1\2\1\3\2\uffff\1\7\6\uffff\1\22\1\1\1\4\1\5\1\10\3\uffff\1\15"+
-        "\1\uffff\1\16\3\uffff\1\12\1\14\7\uffff\1\11\2\uffff\1\20\1\17";
+        "\12\uffff\1\13\4\uffff\1\23\1\24\1\25\1\26\1\uffff\1\27\1\30\3\uffff"+
+        "\1\34\1\35\1\uffff\1\27\12\uffff\1\13\4\uffff\1\23\1\24\1\25\1\26"+
+        "\1\30\1\31\1\32\1\33\1\34\15\uffff\1\21\6\uffff\1\6\11\uffff\1\2"+
+        "\1\3\2\uffff\1\7\6\uffff\1\22\1\1\1\4\1\5\1\10\3\uffff\1\15\1\uffff"+
+        "\1\16\3\uffff\1\12\1\14\7\uffff\1\11\2\uffff\1\20\1\17";
     static final String DFA12_specialS =
         "\1\1\25\uffff\1\2\1\0\142\uffff}>";
     static final String[] DFA12_transitionS = {

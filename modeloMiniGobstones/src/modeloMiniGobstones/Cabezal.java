@@ -1,40 +1,91 @@
 package modeloMiniGobstones;
 
-import java.util.List;
-
 public class Cabezal {
-	private Tablero tablero = new Tablero(10, 10);
-	public int posicionX = 0;
-	public int posicionY = 0;
-	
-	private Cabezal() {}
-	private static Cabezal INSTANCE = new Cabezal();
-	public static Cabezal getInstance() {
-		return INSTANCE;
+	private Tablero tablero = new Tablero(9, 9);
+	private int posicionX = 0;
+	private int posicionY = 0;
+
+	public void imprimirTablero() {
+		if (this.posicionX < 0 || this.posicionY < 0) {
+			System.out.println("UH!...Te caiste del tablero pibe!");
+			this.posicionX = 0;
+			this.posicionY = 0; // reseteo la posicion al origen
+		} else {
+			System.out.println("Cabezal en "
+					+ this.posicionX
+					+ " @ "
+					+ this.posicionY
+					+ "\n"
+					+ "Cantidad de Bolitas: \n"
+					+ this.tablero
+							.imprimirCelda(this.posicionX, this.posicionY));
+		}
 	}
-	
-	public void poner(Bolita bolita){
-		this.tablero.add(this, bolita);
+
+	public void poner(Color color) {
+		this.tablero.ponerColor(this.posicionX, this.posicionY, color);
 	}
-	
-	public void mover(Direccion direccion){
+
+	public void mover(Direccion direccion) {
 		switch (direccion) {
-			case Norte: this.posicionY -= 1;
-			case Este: this.posicionX += 1;
-			case Sur: this.posicionY += 1;
-			case Oeste: this.posicionX -= 1;
+		case Norte:
+			this.posicionY++;
+			break;
+		case Este:
+			this.posicionX++;
+			break;
+		case Sur:
+			this.posicionY--;
+			break;
+		case Oeste:
+			this.posicionX--;
+			break;
+		default:
+			System.out.println("Es raro que llegue a este print :P");
+			break;
 		}
 	}
-	
-	public boolean hayBolitas(Color color){
-		List<Bolita> bolitas = this.getBolitasEnCeldaActual();
-		for (Bolita b : bolitas) {
-			if(b.color.equals(color)) return true;
-		}
-		return false;
+
+	public boolean hayBolitas(Color color) {
+		return this.getCeldaActual().hayBolitas(color);
 	}
-	
-	public List<Bolita> getBolitasEnCeldaActual() {
-		return this.tablero.getTablero()[this.posicionX][this.posicionY].bolitas;
+
+	public boolean puedeMover(Direccion dir) {
+		//TODO fiaca......
+		boolean bool = false; 
+//		switch (dir) {
+//		case Norte:
+//			bool = (this.posicionY - 1) < 0;
+//			break;
+//		case Este:
+//			this.posicionX++;
+//			break;
+//		case Sur:
+//			this.posicionY--;
+//			break;
+//		case Oeste:
+//			this.posicionX--;
+//			break;
+//		default:
+//			System.out.println("Es raro que llegue a este print :P");
+//			break;
+//		}
+		return bool;
+	}
+
+	public Celda getCeldaActual() {
+		return this.tablero.getCelda(this.posicionX, this.posicionY);
+	}
+
+	public Tablero getTablero() {
+		return tablero;
+	}
+
+	public int getPosicionX() {
+		return posicionX;
+	}
+
+	public int getPosicionY() {
+		return posicionY;
 	}
 }

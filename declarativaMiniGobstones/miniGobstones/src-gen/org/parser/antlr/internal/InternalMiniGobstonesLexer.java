@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class InternalMiniGobstonesLexer extends Lexer {
     public static final int RULE_ID=4;
     public static final int T__29=29;
-    public static final int RULE_RBRACE=6;
     public static final int T__28=28;
+    public static final int RULE_RBRACE=6;
     public static final int T__27=27;
     public static final int T__26=26;
     public static final int T__25=25;
@@ -29,8 +29,8 @@ public class InternalMiniGobstonesLexer extends Lexer {
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=12;
     public static final int RULE_ML_COMMENT=11;
-    public static final int T__19=19;
     public static final int T__30=30;
+    public static final int T__19=19;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int RULE_STRING=10;
@@ -1252,8 +1252,8 @@ public class InternalMiniGobstonesLexer extends Lexer {
     static final String DFA12_eofS =
         "\172\uffff";
     static final String DFA12_minS =
-        "\1\0\1\162\1\157\1\uffff\1\157\1\141\1\146\1\154\1\145\1\157\1"+
-        "\172\1\145\1\165\1\163\1\145\4\uffff\1\101\2\uffff\2\0\1\52\2\uffff"+
+        "\1\0\1\162\1\157\1\uffff\1\157\1\141\1\146\1\154\1\145\1\157\1\172"+
+        "\1\145\1\165\1\163\1\145\4\uffff\1\101\2\uffff\2\0\1\52\2\uffff"+
         "\1\157\1\145\1\uffff\1\156\1\uffff\1\166\1\171\1\60\1\163\1\162"+
         "\1\152\1\165\1\147\2\162\1\164\1\163\11\uffff\1\143\1\144\2\145"+
         "\1\102\1\uffff\1\145\1\144\1\157\1\154\1\162\1\164\1\60\1\145\1"+

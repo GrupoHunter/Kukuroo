@@ -21,7 +21,7 @@ class MiniGobstonesGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		var model = resource.contents.head as Model
-		fsa.generateFile('''«model.packageName»/«model.eResource.className».java''', toJavaCode(model));
+		fsa.generateFile('''«model.packageName»/«model.eResource.className».java''', model.toJavaCode);
 	}
 
 	def packageName(Model model) {
